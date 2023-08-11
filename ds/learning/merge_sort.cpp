@@ -51,12 +51,37 @@ void merge_sort(int *arr, int start, int end)
 
     int mid = (start + end) / 2;
 
-    // left subarray
+    // solve left subarray recursively
     merge_sort(arr, start, mid);
 
-    // right subarray
+    // solve right subarray recursively
     merge_sort(arr, mid + 1, end);
 
     // merge the resulting arrays
     merge(arr, start, end);
+}
+
+int main()
+{
+    int x, n;
+
+    cout << "Enter length of array : ";
+    cin >> n;
+
+    int arr[n];
+
+    cout << "Enter array elements" << endl;
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> x;
+        arr[i] = x;
+    }
+
+    merge_sort(arr, 0, n);
+
+    for (int i = 0; i < 8; i++)
+    {
+        cout << arr[i] << ", ";
+    }
 }
